@@ -1,0 +1,163 @@
+<resources>
+    <string name="app_name">FTDID2xx</string>
+
+    <string name="title_activity_main">FTDI D2xx</string>
+    <string name="title_activity_ftdi_mode_fragment">Ftdi Mode Info</string>
+    <string name="title_activity_ftdi_mode_control">Ftdi Mode Control</string>
+    <string name="button_info">Information</string>
+    <string name="button_configure">Device Configure</string>
+    <string name="button_eeprom">Device EEPROM API</string>
+    <string name="button_loopback">Loopback</string>
+    <string name="button_bitmode">BitMode</string>
+    <string name="button_bitmode_service">BitMode Service</string>
+    <string name="title_activity_device_information">Device Information</string>
+    <string name="title_activity_device_configure">Device Configure</string>
+    <string name="title_activity_device_loopback">Device Loopback</string>
+    <string name="title_activity_device_bit_mode">Device BitMode</string>
+    <string name="title_activity_device_bit_mode_service">Device BitMode Service</string>
+    <string name="hex_digits_letter">0123456789abcdef</string>
+    <string name="accessibility_service_description">模拟点击快门，MIUI 设置快捷方式后后续再次打开不用等待</string>
+
+    <string-array name="baud_rate">        
+		<item>300</item>        
+		<item>600</item>        
+		<item>1200</item>        
+		<item>4800</item>        
+		<item>9600</item>        
+		<item>19200</item>        
+		<item>38400</item>        
+		<item>57600</item>
+		<item>115200</item>
+		<item>230400</item>    
+		<item>460800</item>
+		<item>921600</item>
+		<item>1000000</item>
+		<item>1500000</item>
+		<item>2000000</item>
+		<item>3000000</item>
+		<item>4000000</item>
+		<item>5000000</item>
+		<item>6000000</item>
+		<item>7000000</item>
+		<item>8000000</item>
+		<item>9000000</item>
+		<item>10000000</item>
+		<item>11000000</item>
+		<item>12000000</item>			
+	</string-array>
+	
+	<string-array name="stop_bits">        
+		<item>1</item>        
+		<item>2</item>        
+	</string-array>
+		
+	<string-array name="data_bits">        
+		<item>7</item>        
+		<item>8</item>        
+	</string-array>
+	
+	<string-array name="parity">        
+		<item>none</item>        
+		<item>odd</item>
+		<item>even</item>
+		<item >mark</item>
+		<item >space</item>
+	</string-array>
+	
+	<string-array name="flow_control">        
+		<item>none</item>        
+		<item>CTS/RTS</item>
+		<item>DTR/DSR</item>
+		<item>XOFF/XON</item>
+	</string-array>
+	
+	<string-array name="port_list_1">        
+		<item>1</item>
+	</string-array>
+
+	<string-array name="port_list_2">        
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+	
+	<string-array name="port_list_4">        
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+	</string-array>
+			
+	<string-array name="buffer_size">    
+	    <item>32768</item>    
+		<item>1M</item>        
+		<item>2M</item>
+		<item>3M</item>
+		<item>4M</item>
+		<item>5M</item>
+		<item>6M</item>
+		<item>7M</item>
+		<item>8M</item>
+		<item>9M</item>
+		<item>10M</item>
+	</string-array>
+	
+	<string-array name="max_transfer_size">
+	    <item>32768</item>   
+	    <item>16384</item>   
+	    <item>8192</item>   
+	    <item>4096</item>   
+	    <item>2048</item>        
+	    <item>1024</item>      
+		<item>512</item>        
+		<item>256</item>
+		<item>128</item>
+		<item>64</item>
+	</string-array>
+	
+	<string-array name="buffer_number">        
+		<item>12</item>        
+		<item>10</item>
+		<item>8</item>
+		<item>6</item>
+		<item>4</item>
+		<item>2</item>
+	</string-array>
+	
+    <string name="clockPhase">Polarity/Phase</string>
+	<string name="clockFreq">Frequence</string>
+    <string name="clockDivider">Divider</string>
+	<string name="tips">提示：\n引闪会模拟点击按钮上方的位置\n悬浮窗长按减号可以关闭\n按住时间可以拖拽\n需要浮窗权限\n设置-应用管理-APP-权限管理-显示悬浮窗\n</string>
+	<string-array name="clock_phase">        
+		<item>CPOL=0, CPHA=0</item>        
+		<item>CPOL=0, CPHA=1</item>        
+		<item>CPOL=1, CPHA=0</item>
+		<item>CPOL=1, CPHA=1</item>        
+	</string-array>
+	<string-array name="clock_divier">
+		<item >1/2</item>
+		<item >1/4</item>
+		<item >1/8</item>
+		<item >1/16</item>
+		<item >1/32</item>
+		<item >1/64</item>
+		<item >1/128</item>
+		<item >1/256</item>
+		<item >1/512</item>
+	</string-array>
+	
+	<string-array name="clock_freq">
+		<item >24MHz</item>
+		<item >48MHz</item>
+		<item >60MHz</item>		
+		<item >80MHz</item>
+	</string-array>
+
+	<string-array name="I2C_freq">
+		<item >60KHz</item>
+		<item >100KHz</item>
+		<item >400KHz</item>		
+		<item >1MHz</item>
+		<item >3.4MHz</item>
+	</string-array>	
+		
+</resources>
