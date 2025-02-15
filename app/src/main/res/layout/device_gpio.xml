@@ -57,20 +57,29 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:orientation="horizontal"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/information"
-            android:layout_width="150dp"
+            android:layout_width="80dp"
             android:layout_height="48dp"
             android:text="状态"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/InfoText"
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/LocationInfoText"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:textSize="20sp" />
+
+
     </LinearLayout>
 
     <Button
@@ -98,20 +107,11 @@
         android:text="GPIO 电平模拟"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/bit_bang_async_mode"
-        android:layout_width="fill_parent"
-        android:layout_height="48dp"
-        android:onClick="SetBitBangModeAsyncClick"
-        android:text="Enable ASYNC_BITBANG Mode Test"
-        android:textSize="20sp"
-        android:visibility="invisible" />
-
     <SeekBar
         android:id="@+id/seekbar_delay"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:min="400" />
+        android:min="150" />
 
     <EditText
         android:id="@+id/et_flash_delay"
@@ -122,11 +122,50 @@
         android:hint="请输入延迟时间 (ms)"
         android:ems="10" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content">
+
+<!--        x y位置输入框-->
+        <TextView
+            android:id="@+id/information_x"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="X: "
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="模拟X坐标"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/information_y"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Y: "
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/et_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="模拟Y坐标"
+            android:inputType="number" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/EventStatus"
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_height="wrap_content"
         android:paddingHorizontal="16dp"
         android:text="@string/tips"

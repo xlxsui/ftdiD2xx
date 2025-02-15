@@ -24,7 +24,7 @@ import com.ftdi.j2xx.D2xxManager;
 import com.ftdi.j2xx.FT_Device;
 import com.ftdi.javad2xx.services.FloatingWindowService;
 
-@SuppressLint("ValidFragment")
+
 public class GPIOFragment extends Fragment {
 
     Context context;
@@ -36,8 +36,15 @@ public class GPIOFragment extends Fragment {
     Button btnStartFloatingWindow;
     SeekBar seekBarDelay;
     EditText etFlashDelay;
+    // x y 坐标输入
+    EditText etX;
+    EditText etY;
+
+    public GPIOFragment() {
+    }
 
     /* Constructor */
+    @SuppressLint("ValidFragment")
     public GPIOFragment(Context parentContext, D2xxManager ftdid2xxContext) {
         context = parentContext;
         ftdiD2xx = ftdid2xxContext;
@@ -79,6 +86,8 @@ public class GPIOFragment extends Fragment {
         });
 
         etFlashDelay = view.findViewById(R.id.et_flash_delay);
+        etX = view.findViewById(R.id.et_x);
+        etY = view.findViewById(R.id.et_y);
 
         // 监听输入框数值变化
         etFlashDelay.addTextChangedListener(new TextWatcher() {
@@ -106,6 +115,72 @@ public class GPIOFragment extends Fragment {
             @Override
             public void afterTextChanged(Editable s) {
                 // 在文字改变后的逻辑（可以忽略）
+            }
+        });
+
+        etX.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // 实时监听用户输入的数值
+                try {
+                    int xLoc = Integer.parseInt(charSequence.toString());
+                    if (xLoc >= 0) {
+                        MainActivity.GLOBAL_CLICK_X = xLoc;
+                        ((TextView)view.findViewById(R.id.LocationInfoText))
+                                .setText("X: " + MainActivity.GLOBAL_CLICK_X +  " Y: " + MainActivity.GLOBAL_CLICK_Y);
+                    }
+                } catch (NumberFormatException e) {
+                    // 如果输入的不是数字，可以提示用户
+                    MainActivity.GLOBAL_CLICK_X = -1;
+                    ((TextView)view.findViewById(R.id.LocationInfoText))
+                            .setText("X: " + MainActivity.GLOBAL_CLICK_X +  " Y: " + MainActivity.GLOBAL_CLICK_Y);
+                    Toast.makeText(getContext(), "请输入有效的数字", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        etY.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                // 实时监听用户输入的数值
+                try {
+                    int yLoc = Integer.parseInt(charSequence.toString());
+                    if (yLoc >= 0) {
+                        MainActivity.GLOBAL_CLICK_Y = yLoc;
+                        ((TextView)view.findViewById(R.id.LocationInfoText))
+                                .setText("X: " + MainActivity.GLOBAL_CLICK_X +  " Y: " + MainActivity.GLOBAL_CLICK_Y);
+                    }
+                } catch (NumberFormatException e) {
+                    // 如果输入的不是数字，可以提示用户
+                    MainActivity.GLOBAL_CLICK_Y = -1;
+                    ((TextView)view.findViewById(R.id.LocationInfoText))
+                            .setText("X: " + MainActivity.GLOBAL_CLICK_X +  " Y: " + MainActivity.GLOBAL_CLICK_Y);
+                    Toast.makeText(getContext(), "请输入有效的数字", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
             }
         });
 

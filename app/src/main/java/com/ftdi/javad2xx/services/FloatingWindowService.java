@@ -97,9 +97,9 @@ public class FloatingWindowService extends Service {
 
             if (DevCount > 0) {
                 // 无障碍模拟点击该位置
-                simulateClick();
                 btnToggleLevel.postDelayed(this::btnTxdClick, MainActivity.GLOBAL_FLASH_DELAY);
             }
+            simulateClick();
         });
 
         btnAdd.setOnClickListener(v -> {
@@ -179,6 +179,12 @@ public class FloatingWindowService extends Service {
             int centerX = location[0] + btnToggleLevel.getWidth() / 2;
             int centerY = location[1] - 50; // 上方 50 像素位置
 
+            // 假如用户有自己输入
+            if (MainActivity.GLOBAL_CLICK_X > 0 && MainActivity.GLOBAL_CLICK_Y > 0) {
+                centerX = MainActivity.GLOBAL_CLICK_X;
+                centerY = MainActivity.GLOBAL_CLICK_Y;
+            }
+
             Log.i("FloatingWindowService", "模拟点击位置: " + centerX + ", " + centerY);
 
             // 模拟点击手势
@@ -191,10 +197,16 @@ public class FloatingWindowService extends Service {
             // 调用无障碍服务进行点击
             AccessibilityService accessibilityService = MyAccessibilityService.getInstance();
             if (accessibilityService != null) {
+                int finalCenterX = centerX;
+                int finalCenterY = centerY;
                 accessibilityService.dispatchGesture(gesture, new AccessibilityService.GestureResultCallback() {
                     @Override
                     public void onCompleted(GestureDescription gestureDescription) {
                         super.onCompleted(gestureDescription);
+                        String info = "点击 x:" + finalCenterX + " y:" + finalCenterY;
+                        Toast toast = Toast.makeText(context, info, Toast.LENGTH_SHORT);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
                         Log.i("FloatingWindowService", "模拟点击成功");
                     }
 

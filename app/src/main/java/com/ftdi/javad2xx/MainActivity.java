@@ -24,6 +24,8 @@ public class MainActivity extends android.app.Activity {
     public static D2xxManager ftD2xx = null;
     public static int current_index = 0;
     public static int GLOBAL_FLASH_DELAY = 460;
+    public static int GLOBAL_CLICK_X = -1;
+    public static int GLOBAL_CLICK_Y = -1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
