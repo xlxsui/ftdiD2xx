@@ -10,8 +10,19 @@ android {
         targetSdkVersion 26
     }
 
+    signingConfigs {
+        config {
+            storeFile file(StoreFile)
+            storePassword StorePassword
+            keyAlias KeyAlias
+            keyPassword KeyPassword
+        }
+    }
+
     buildTypes {
         release {
+            // 签名信息配置
+            signingConfig signingConfigs.config
             minifyEnabled true
             proguardFiles 'proguard.cfg'
         }
